@@ -80,9 +80,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-    :bucket => ENV['blog-photos-bin'],
-    :access_key_id => ENV['AKIAJ5LYJEHA7ORWOLGA'],
-    :secret_access_key => ENV['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']
+    :bucket => ENV['S3_BUCKET_NAME'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   }
 }
 
