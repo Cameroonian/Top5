@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Artists</h1>
+<%=link_to new_artist_path do%>
+    <span class="glyphicon glyphicon-plus"></span> Add
+    <%end%>
+
+   <% @artists.each_slice(2) do |artists| %>
+     <div class="row"> 
+       <% artists.each do |artist| %>
+         <div class="col-md-6">
+           <div class="well">       
+             <h2><%=artist.name %></h2>
+             <p><%= image_tag artist.avatar.url(:thumb)%></p>
+             <p><%= link_to artist do %>
+             <span class="glyphicon glyphicon-search"></span>  
+              <%end%>&nbsp;
+              <%= link_to edit_artist_path(artist) do %>
+             <span class="glyphicon glyphicon-pencil"></span> 
+              <%end%> &nbsp;
+             <%= link_to artist, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <span class="glyphicon glyphicon-trash"></span> 
+              <%end%>&nbsp;
+             </p>
+           </div>
+         </div>
+       <% end %>      
+   </div>
+<% end %>
+<br>
+
+<%= link_to 'New Artist', new_artist_path %>
